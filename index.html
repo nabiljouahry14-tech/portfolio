@@ -254,18 +254,22 @@ header {
 /* Small screens: show hamburger, hide nav */
 @media (max-width: 768px) {
     nav ul {
-        display: none;
+        display: flex;
         flex-direction: column;
         background: rgba(0,0,0,0.95);
         position: fixed;
-        top: 60px;
-        right: 10px;
-        padding: 1rem 1rem;
-        border-radius: 10px;
+        top: -300px;
+        right: 0px;
+        left: 0px;
+        padding: 2rem;
+        align-items: center;
+        gap: 1.5rem;
+        border-radius: 0 0 10px 10px;
+        transition: top0.3s ease;
         z-index: 1050;
     }
     nav ul.show {
-        display: flex;
+        top: 60px;
     }
     .hamburger {
         display: block;
@@ -388,6 +392,7 @@ hamburger.addEventListener("click", () => {
 </script>
 </body>
 </html>
+
 
 
 
