@@ -188,6 +188,11 @@ section.show { opacity: 1; transform: translateY(0); }
     justify-content: center;
     gap: 0.3rem;
 }
+.contact p span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
 @media (min-width: 480px) {
     .contact p {
         flex-wrap: nowrap;
@@ -374,9 +379,9 @@ nav ul.show li:nth-child(4) { transition-delay: 0.2s; }
 
 <section class="contact" id="contact">
 <h2>Contact Me</h2>
-<p><i class="fas fa-envelope contact-icon"></i> Email: <a href="mailto:nabiljouahry14@gmail.com">nabiljouahry14@gmail.com</a></p>
-<p><i class="fas fa-phone contact-icon"></i> Phone: <a href="tel:+212634630703">+212 634-630703</a></p>
-<p><i class="fas fa-map-marker-alt contact-icon"></i> Location: Casablanca, Morocco</p>
+<p><span><i class="fas fa-envelope contact-icon"></i> Email: <a href="mailto:nabiljouahry14@gmail.com">nabiljouahry14@gmail.com</a></span></p>
+<p><span><i class="fas fa-phone contact-icon"></i> Phone: <a href="tel:+212634630703">+212 634-630703</a></span></p>
+<p><span><i class="fas fa-map-marker-alt contact-icon"></i> Location: Casablanca, Morocco</span></p>
 <div class="contact-icons">
 <a href="https://github.com/nabiljouahry14-tech" target="_blank"><i class="fab fa-github"></i></a>
 <a href="https://twitter.com/Nabil_Jh14" target="_blank"><i class="fab fa-x-twitter"></i></a>
@@ -429,6 +434,7 @@ navLinksMobile.forEach(link => {
 </script>
 </body>
 </html>
+
 
 
 
