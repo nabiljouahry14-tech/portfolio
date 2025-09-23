@@ -257,11 +257,12 @@ header {
         display: none;
         flex-direction: column;
         background: rgba(0,0,0,0.95);
-        position: absolute;
+        position: fixed;
         top: 60px;
-        right: 20px;
-        padding: 1rem 2rem;
+        right: 10px;
+        padding: 1rem 1rem;
         border-radius: 10px;
+        z-index: 1050;
     }
     nav ul.show {
         display: flex;
@@ -270,10 +271,6 @@ header {
         display: block;
     }
 }
-html {
-  scroll-padding-top: 80px; /* Adjust this to your header height */
-}
-
 </style>
 </head>
 <body>
@@ -391,5 +388,6 @@ hamburger.addEventListener("click", () => {
 </script>
 </body>
 </html>
+
 
 
