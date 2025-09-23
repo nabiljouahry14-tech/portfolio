@@ -241,6 +241,36 @@ header {
     50% { transform: translateY(30px) translateX(50px) rotate(180deg); }
     100% { transform: translateY(0) translateX(0) rotate(360deg); }
 }
+/* 🌐 Hamburger Menu for small screens */
+.hamburger {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    z-index: 1100;
+}
+/* Small screens: show hamburger, hide nav */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: rgba(0,0,0,0.95);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+    }
+    nav ul.show {
+        display: flex;
+    }
+    .hamburger {
+        display: block;
+    }
+}
+
 
 </style>
 </head>
@@ -256,6 +286,9 @@ header {
 </ul>
 <span class="nav-underline"></span>
 </nav>
+<button class="hamburger" id="hamburger">
+  ☰
+</button>
 </header>
 <div class="floating-shapes">
     <div class="shape circle" style="top:5%; left:10%; animation-duration:25s;"></div>
@@ -346,6 +379,14 @@ const aboutSection=document.getElementById('about');
 const skills=aboutSection.querySelectorAll('.skill');
 const skillObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){skills.forEach((skill,i)=>{setTimeout(()=>skill.classList.add('show-skill'),i*150);});}else{skills.forEach(skill=>skill.classList.remove('show-skill'));}})},{threshold:0.2});
 skillObserver.observe(aboutSection);
+    // Hamburger menu toggle
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.querySelector("nav ul");
+
+hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+});
 </script>
 </body>
 </html>
+
