@@ -18,12 +18,17 @@
                     <span class="logo-bracket">&lt;</span>NJ<span class="logo-bracket">/&gt;</span>
                 </a>
                 <ul class="nav-links">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#home" class="nav-link" data-i18n="nav.home">Home</a></li>
+                    <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
+                    <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
+                    <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+                    <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
                 </ul>
+                <div class="lang-switch" aria-label="Language switch">
+                    <button class="lang-btn" id="lang-en" type="button">EN</button>
+                    <button class="lang-btn" id="lang-fr" type="button">FR</button>
+                </div>
+
                 <button class="menu-toggle">
                     <span></span>
                     <span></span>
@@ -38,19 +43,19 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <div class="hero-label">Welcome to my portfolio</div>
+                    <div class="hero-label" data-i18n="hero.welcome">Welcome to my portfolio</div>   
                     <h1 class="hero-title">
                         Hi, I'm <span class="gradient-text">Nabil Jouahry</span>
                     </h1>
-                    <p class="hero-subtitle">
+                    <p class="hero-subtitle" data-i18n="hero.subtitle">
                         Tech Specialist in Systems & Networks | IT Infrastructure | Cybersecurity Enthusiast
                     </p>
-                    <p class="hero-description">
+                    <p class="hero-description" data-i18n="hero.desc">
                         I design and maintain robust IT systems, secure networks, and create elegant technical solutions. Specialized in Windows/Linux administration, with a passion for automation and cybersecurity.
                     </p>
                     <div class="hero-cta">
-                        <a href="#projects" class="btn btn-primary">View My Work</a>
-                        <a href="https://nabiljouahry14-tech.github.io/portfolio/CV_Nabil_Jouahry.pdf" class="btn btn-secondary">Download CV</a>
+                        <a href="#projects" class="btn btn-primary" data-i18n="hero.ctaWork">View My Work</a>
+                        <a href="https://nabiljouahry14-tech.github.io/portfolio/CV_Nabil_Jouahry.pdf" class="btn btn-secondary" data-i18n="hero.ctaCv">Download CV</a>
                     </div>
                 </div>
                 <div class="hero-visual">
@@ -77,14 +82,14 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
-                <h2>About Me</h2>
-                <p>My journey in technology</p>
+                <h2 data-i18n="about.title">About Me</h2>
+                <p data-i18n="about.subtitle">My journey in technology</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I'm a recently certified Technicien Spécialisé en Systèmes et Réseaux from CCINFO with a strong passion for IT infrastructure, system administration, and cybersecurity. Through two years of intensive study, I've developed a comprehensive skill set across multiple domains including Windows/Linux administration, networking, and security.</p>
-                    <p>Beyond infrastructure, I'm a programmer at heart—using Python and Java to automate tasks, solve complex problems, and create intelligent solutions. I bridge the gap between operations and development, ensuring systems are not just secure, but also efficient and scalable.</p>
-                    <p>My goal is to build reliable, secure, and innovative IT solutions that make a real impact. Whether it's implementing Active Directory for enterprise environments, setting up secure networks, or developing automation tools, I approach every project with precision and dedication.</p>
+                    <p data-i18n="about.text1">I'm a recently certified Technicien Spécialisé en Systèmes et Réseaux from CCINFO with a strong passion for IT infrastructure, system administration, and cybersecurity. Through two years of intensive study, I've developed a comprehensive skill set across multiple domains including Windows/Linux administration, networking, and security.</p>
+                    <p data-i18n="about.text2">Beyond infrastructure, I'm a programmer at heart—using Python and Java to automate tasks, solve complex problems, and create intelligent solutions. I bridge the gap between operations and development, ensuring systems are not just secure, but also efficient and scalable.</p>
+                    <p data-i18n="about.text3">My goal is to build reliable, secure, and innovative IT solutions that make a real impact. Whether it's implementing Active Directory for enterprise environments, setting up secure networks, or developing automation tools, I approach every project with precision and dedication.</p>
                 </div>
                 <div class="about-stats">
                     <div class="stat-card">
@@ -108,14 +113,14 @@
     <section id="skills" class="skills">
         <div class="container">
             <div class="section-header">
-                <h2>Technical Skills</h2>
-                <p>Expertise across multiple domains</p>
+                <h2 data-i18n="skills.title">Technical Skills</h2>
+                <p data-i18n="skills.subtitle">Expertise across multiple domains</p>
             </div>
             
             <div class="skills-grid">
                 <!-- Network Administration -->
                 <div class="skill-category">
-                    <h3>Network Administration</h3>
+                    <h3 data-i18n="skills.network-admin">Network Administration</h3>
                     <div class="skill-item">
                         <div class="skill-header">
                             <span>Routing & Switching</span>
@@ -145,7 +150,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span>IP Addressing & Subnetting</span>
+                            <span data-i18n="skills.ip-subnetting">IP Addressing & Subnetting</span>
                             <span class="skill-percent">92%</span>
                         </div>
                         <div class="skill-bar">
@@ -156,10 +161,10 @@
 
                 <!-- Systems Administration -->
                 <div class="skill-category">
-                    <h3>Systems Administration</h3>
+                    <h3 data-i18n="skills.systems-admin">Systems Administration</h3>
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span>Windows Server Admin</span>
+                            <span data-i18n="skills.windows-server">Windows Server Admin</span>
                             <span class="skill-percent">93%</span>
                         </div>
                         <div class="skill-bar">
@@ -177,7 +182,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span>Server Maintenance</span>
+                            <span data-i18n="skills.server-maintenance">Server Maintenance</span>
                             <span class="skill-percent">90%</span>
                         </div>
                         <div class="skill-bar">
@@ -186,7 +191,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span>User Management</span>
+                            <span data-i18n="skills.user-management">User Management</span>
                             <span class="skill-percent">89%</span>
                         </div>
                         <div class="skill-bar">
@@ -197,10 +202,10 @@
 
                 <!-- Cybersecurity -->
                 <div class="skill-category">
-                    <h3>Cybersecurity</h3>
+                    <h3 data-i18n="skills.cybersecurity">Cybersecurity</h3>
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span>Network Security</span>
+                            <span data-i18n="skills.network-security">Network Security</span>
                             <span class="skill-percent">87%</span>
                         </div>
                         <div class="skill-bar">
@@ -209,7 +214,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span>Firewall Configuration</span>
+                            <span data-i18n="skills.firewall-config">Firewall Configuration</span>
                             <span class="skill-percent">84%</span>
                         </div>
                         <div class="skill-bar">
@@ -218,7 +223,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span>System Monitoring</span>
+                            <span data-i18n="skills.system-monitoring">System Monitoring</span>
                             <span class="skill-percent">86%</span>
                         </div>
                         <div class="skill-bar">
@@ -227,7 +232,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span>Threat Prevention</span>
+                            <span data-i18n="skills.threat-prevention">Threat Prevention</span>
                             <span class="skill-percent">82%</span>
                         </div>
                         <div class="skill-bar">
@@ -238,7 +243,7 @@
 
                 <!-- Programming -->
                 <div class="skill-category">
-                    <h3>Programming & Development</h3>
+                    <h3 data-i18n="skills.programming">Programming & Development</h3>
                     <div class="skill-item">
                         <div class="skill-header">
                             <span>Python</span>
@@ -259,7 +264,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span>Web Development (HTML/CSS/JS)</span>
+                            <span data-i18n="skills.web-dev">Web Development (HTML/CSS/JS)</span>
                             <span class="skill-percent">85%</span>
                         </div>
                         <div class="skill-bar">
@@ -268,7 +273,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span>Automation & Scripting</span>
+                            <span data-i18n="skills.automation">Automation & Scripting</span>
                             <span class="skill-percent">89%</span>
                         </div>
                         <div class="skill-bar">
@@ -280,9 +285,9 @@
 
             <!-- Technology Stack -->
             <div class="tech-stack">
-                <h3>Technology Stack</h3>
+                <h3 data-i18n="skills.tech-stack">Technology Stack</h3>
                 <div class="tech-tags">
-                    <span class="tech-tag">Windows Server</span>
+                    <span class="tech-tag" data-i18n="skills.windows-server">Windows Server</span>
                     <span class="tech-tag">Linux</span>
                     <span class="tech-tag">Cisco IOS</span>
                     <span class="tech-tag">Active Directory</span>
@@ -290,10 +295,10 @@
                     <span class="tech-tag">Java</span>
                     <span class="tech-tag">HTML/CSS</span>
                     <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">Firewalls</span>
+                    <span class="tech-tag" data-i18n="skills.firewalls">Firewalls</span>
                     <span class="tech-tag">VPN</span>
-                    <span class="tech-tag">Load Balancing</span>
-                    <span class="tech-tag">Backup Solutions</span>
+                    <span class="tech-tag" data-i18n="skills.load-balancing">Load Balancing</span>
+                    <span class="tech-tag" data-i18n="skills.backup-solutions">Backup Solutions</span>
                 </div>
             </div>
         </div>
@@ -303,8 +308,8 @@
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-header">
-                <h2>Featured Projects</h2>
-                <p>Showcasing my technical expertise and innovation</p>
+                <h2 data-i18n="projects.title">Featured Projects</h2>
+                <p data-i18n="projects.subtitle">Showcasing my technical expertise and innovation</p>
             </div>
             
             <div class="projects-grid">
@@ -317,15 +322,15 @@
                     </div>
                     <div class="project-content">
                         <h3>Leo – Personal AI Desktop Assistant</h3>
-                        <p>A smart voice-powered assistant built with Python. Leo understands natural commands, controls your PC, checks weather, and learns from user interactions. This project demonstrates API integration, voice processing, and automation skills.</p>
+                        <p data-i18n="projects.leo.description">A smart voice-powered assistant built with Python. Leo understands natural commands, controls your PC, checks weather, and learns from user interactions. This project demonstrates API integration, voice processing, and automation skills.</p>
                         <div class="project-tech">
                             <span class="tech-badge">Python</span>
-                            <span class="tech-badge">Voice Recognition</span>
+                            <span class="tech-badge" data-i18n="projects.leo.tech.voice">Voice Recognition</span>
                             <span class="tech-badge">Groq API</span>
                             <span class="tech-badge">Edge-TTS</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://youtu.be/o--VQ5LgDok" type="button" class="project-link btn-demo" data-video="leo_demo.mp4">View Demo →</a>
+                            <a href="https://youtu.be/o--VQ5LgDok" type="button" class="project-link btn-demo" data-video="leo_demo.mp4" data-i18n="projects.leo.demo">View Demo →</a>
                         </div>
                     </div>
                 </div>
@@ -352,16 +357,16 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3>Arc Raiders Fan Guide</h3>
-                        <p>A comprehensive resource guide for the Arc Raiders community. Includes gameplay mechanics, tips, strategies, and community information. Built with responsive design principles and organized information architecture.</p>
+                        <h3 data-i18n="projects.arc-raiders.title">Arc Raiders Fan Guide</h3>
+                        <p data-i18n="projects.arc-raiders.description">A comprehensive resource guide for the Arc Raiders community. Includes gameplay mechanics, tips, strategies, and community information. Built with responsive design principles and organized information architecture.</p>
                         <div class="project-tech">
                             <span class="tech-badge">HTML/CSS</span>
                             <span class="tech-badge">JavaScript</span>
-                            <span class="tech-badge">Responsive Design</span>
-                            <span class="tech-badge">Web Development</span>
+                            <span class="tech-badge" data-i18n="skills.responsive-design">Responsive Design</span>
+                            <span class="tech-badge" data-i18n="skills.web-dev">Web Development</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://nabiljouahry14-tech.github.io/arc-raiders-guide/" class="project-link">Visit Site →</a>
+                            <a href="https://nabiljouahry14-tech.github.io/arc-raiders-guide/" class="project-link" data-i18n="projects.arc-raiders.visit-site">Visit Site →</a>
                         </div>
                     </div>
                 </div>
@@ -387,9 +392,9 @@
                     </div>
 
                     <div class="project-content">
-                        <h3>Admin Dashboard – Portfolio Management</h3>
+                        <h3 data-i18n="projects.admin-dashboard.title">Admin Dashboard – Portfolio Management</h3>
 
-                        <p>
+                        <p data-i18n="projects.admin-dashboard.description">
                             A secure admin dashboard used to manage portfolio projects.
                             Features authentication, demo mode restrictions, full CRUD operations,
                             and real-time data storage using Supabase. Built with vanilla JavaScript
@@ -401,17 +406,17 @@
                             <span class="tech-badge">JavaScript</span>
                             <span class="tech-badge">Supabase</span>
                             <span class="tech-badge">Auth & CRUD</span>
-                            <span class="tech-badge">GitHub Pages</span>
+                            <span class="tech-badge" data-i18n="skills.github-pages">GitHub Pages</span>
                         </div>
 
                         <div class="project-links">
                             <a href="https://nabiljouahry14-tech.github.io/admin-panel/"
-                                class="project-link btn-demo">
+                                class="project-link btn-demo" data-i18n="projects.admin-dashboard.demo">
                                 Live Demo →
                             </a>
                         </div>
 
-                        <div class="muted" style="font-size:13px; margin-top:8px;">
+                        <div class="muted" style="font-size:13px; margin-top:8px;" data-i18n="projects.admin-dashboard.demo-note">
                             Demo access available • Editing & delete disabled
                         </div>
                     </div>
@@ -426,8 +431,8 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <h2>Get In Touch</h2>
-                <p>Let's discuss your IT needs and how I can help</p>
+                <h2 data-i18n="contact.title">Get In Touch</h2>
+                <p data-i18n="contact.subtitle">Let's discuss your IT needs and how I can help</p>
             </div>
             
             <div class="contact-header-info">
@@ -452,26 +457,26 @@
                         <path d="M12 2C7 2 3 6 3 12C3 20 12 30 12 30S21 20 21 12C21 6 17 2 12 2Z" fill="none" stroke="currentColor" stroke-width="2"/>
                         <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
                     </svg>
-                    <span>Casablanca, Morocco</span>
+                    <span data-i18n="contact.location">Casablanca, Morocco</span>
                 </div>
             </div>
 
             <div class="contact-content">
                 <form class="contact-form" action="https://formspree.io/f/xojweyna" method="POST">
                     <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="text" name="name" placeholder="Your Name" required data-i18n="contact.form.name">
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="email" name="email" placeholder="Your Email" required data-i18n="contact.form.email">
                     </div>
                     <div class="form-group">
-                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                        <textarea name="message" placeholder="Your Message" rows="5" required data-i18n="contact.form.message"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <button type="submit" class="btn btn-primary" data-i18n="contact.form.send">Send Message</button>
                 </form>
 
                 <div class="contact-social">
-                    <h3>Connect With Me</h3>
+                    <h3 data-i18n="contact.connect">Connect With Me</h3>
                     <div class="social-links-grid">
                         <a href="https://github.com/nabiljouahry14-tech" class="social-link-card" target="_blank" title="GitHub">
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -500,7 +505,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Nabil Jouahry. All rights reserved. | Tech Specialist & Developer</p>
+            <p data-i18n="footer.rights">&copy; 2026 Nabil Jouahry. All rights reserved. | Tech Specialist & Developer</p>
         </div>
     </footer>
 
