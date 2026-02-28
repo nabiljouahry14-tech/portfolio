@@ -78,6 +78,10 @@ const translations = {
     "contact.form.send": "Send Message",
     "contact.connect": "Connect With Me",
 
+    "projects.it-ticket-system.title": "IT Ticket System",
+    "projects.it-ticket-system.description": "A responsive IT ticketing system built with HTML, CSS, and JavaScript. Using Supabase for backend data management, it allows users to submit support tickets, track their status, and view ticket history. The system is designed for IT support teams to efficiently manage and resolve technical issues.",
+    "projects.it-ticket-system.demo": "View Demo →",
+
     "footer.rights": "© 2026 Nabil Jouahry. All rights reserved. | Tech Specialist & Developer",
   },
 
@@ -152,6 +156,10 @@ const translations = {
     "contact.connect": "Connectez-vous avec moi",
 
     "footer.rights": "© 2026 Nabil Jouahry. Tous droits réservés. | Spécialiste IT & Développeur",
+
+    "projects.it-ticket-system.title": "Système de tickets IT",
+    "projects.it-ticket-system.description": "Un système de ticketing IT réactif construit avec HTML, CSS et JavaScript. Utilisant Supabase pour la gestion des données backend, il permet aux utilisateurs de soumettre des tickets de support, de suivre leur statut et de consulter l'historique des tickets. Le système est conçu pour que les équipes de support IT gèrent efficacement et résolvent les problèmes techniques.",
+    "projects.it-ticket-system.demo": "Démo en direct →",
   }
 };
 
