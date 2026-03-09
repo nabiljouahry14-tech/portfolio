@@ -89,9 +89,13 @@ body {
     box-shadow: 0 10px 30px rgba(0, 212, 255, 0.18);
 }
 
+/* Show lang-switch inside mobile menu */
 @media (max-width: 768px){
-  .lang-switch{ display:none; }
-  .hero h1 { font-size: 2.2rem; line-height: 1.2; }
+  .lang-switch {
+    display: flex;      /* make it visible */
+    margin-top: 1rem;   /* space from menu links */
+    justify-content: center;
+  }
 }
 
 
@@ -166,7 +170,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 80px;
+    padding-top: 100px;
     position: relative;
     overflow: hidden;
 }
@@ -1020,75 +1024,14 @@ button.project-link:hover {
         gap: 1rem;
     }
 }
-/* =========================
-   MOBILE NAVIGATION (FIXED)
-   ========================= */
-
-@media (max-width: 768px){
-
-.menu-toggle{
-    display:flex;
-}
-
-/* NAV LINKS OVERLAY */
-.nav-links{
-    position: fixed;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 70px);
-
-    background: rgba(10,14,39,0.97);
-    backdrop-filter: blur(12px);
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    padding: 40px 30px;
-    gap: 24px;
-
-    overflow-y: auto;
-
-    transform: translateY(-100%);
-    transition: transform 0.35s ease;
-
-    z-index: 999;
-}
-
-/* when open */
-.nav-links.active{
-    transform: translateY(0);
-}
-
-.nav-links li{
-    width:100%;
-}
-
-.nav-link{
-    font-size:1.3rem;
-    display:block;
-    width:100%;
-}
-
-/* LANGUAGE SWITCH POSITION */
-.lang-switch{
-    display:flex;
-    margin-top:20px;
-}
-
-/* hamburger animation */
-
-.menu-toggle.active span:nth-child(1){
-    transform: rotate(45deg) translate(5px,5px);
-}
-
-.menu-toggle.active span:nth-child(2){
-    opacity:0;
-}
-
-.menu-toggle.active span:nth-child(3){
-    transform: rotate(-45deg) translate(6px,-6px);
-}
-
+.nav-links.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(10,14,39,0.95);
+  width: 200px; /* or 100% */
+  padding: 1rem;
+  border-radius: 0 0 10px 10px;
 }
