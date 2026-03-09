@@ -336,12 +336,14 @@ function initMobileMenu() {
   if (!menuToggle || !navLinks) return;
 
   menuToggle.addEventListener('click', () => {
-    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    menuToggle.classList.toggle('active');
+    navLinks.classList.toggle('active');
   });
 
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-      if (window.innerWidth <= 768) navLinks.style.display = 'none';
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
     });
   });
 }
@@ -442,3 +444,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initEscCloseMenu();
   createParticles();
 });
+
