@@ -340,6 +340,7 @@ function initMobileMenu() {
     navLinks.classList.toggle('active');
   });
 
+  // Close menu when clicking a nav link
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
       menuToggle.classList.remove('active');
@@ -419,13 +420,7 @@ function createParticles() {
    ESC closes mobile menu
    ========================= */
 
-function initEscCloseMenu() {
-  document.addEventListener('keydown', (e) => {
-    if (e.key !== 'Escape') return;
-    const navLinks = document.querySelector('.nav-links');
-    if (navLinks) navLinks.style.display = 'none';
-  });
-}
+
 
 /* =========================
    Init
@@ -445,3 +440,11 @@ document.addEventListener('DOMContentLoaded', () => {
   createParticles();
 });
 
+window.addEventListener('resize', () => {
+  const navLinks = document.querySelector('.nav-links');
+  const menuToggle = document.querySelector('.menu-toggle');
+  if (window.innerWidth > 768 && navLinks && menuToggle) {
+    navLinks.classList.remove('active');
+    menuToggle.classList.remove('active');
+  }
+});
