@@ -1019,3 +1019,66 @@ button.project-link:hover {
         gap: 1rem;
     }
 }
+/* =========================
+   MOBILE NAVIGATION FIX
+   ========================= */
+
+@media (max-width: 768px){
+
+.nav-links{
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: rgba(10,14,39,0.98);
+    backdrop-filter: blur(15px);
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 28px;
+    padding-top: 40px;
+
+    overflow-y: auto;
+
+    transform: translateY(-120%);
+    transition: transform 0.35s ease;
+}
+
+.nav-links.active{
+    transform: translateY(0);
+}
+
+.nav-links li{
+    width: 100%;
+    text-align: center;
+}
+
+.nav-link{
+    font-size: 1.3rem;
+    display: block;
+    padding: 10px 0;
+}
+
+/* Language switch inside mobile menu */
+.lang-switch{
+    display: flex;
+    margin-top: 30px;
+}
+
+/* hamburger animation */
+.menu-toggle.active span:nth-child(1){
+    transform: rotate(45deg) translate(5px,5px);
+}
+
+.menu-toggle.active span:nth-child(2){
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3){
+    transform: rotate(-45deg) translate(6px,-6px);
+}
+
+}
