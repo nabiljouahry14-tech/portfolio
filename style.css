@@ -10,6 +10,7 @@
     --border: #1e2847;
     --success: #00ff88;
     --accent: #ff6b35;
+    --accent-warm: #ff8c3a;
 }
 
 * {
@@ -1034,4 +1035,182 @@ button.project-link:hover {
   width: 200px; /* or 100% */
   padding: 1rem;
   border-radius: 0 0 10px 10px;
+}
+
+/* ================================================================
+   PREMIUM UPGRADE PACK
+   Cursor-follow ambient glow · 3D card tilt · magnetic CTAs ·
+   glowing gradient section dividers · hero HUD grid atmosphere ·
+   flagship project treatment (auto-detected, no markup edits needed) ·
+   refined video modal · custom scrollbar
+   ================================================================ */
+
+/* Custom scrollbar, matching the brand gradient */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--darker-bg); }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--primary), var(--secondary));
+    border-radius: 10px;
+    border: 2px solid var(--darker-bg);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--secondary), var(--primary));
+}
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--darker-bg);
+}
+
+/* Ambient glow that follows the cursor across dark sections (desktop only,
+   injected by script.js — no HTML edit required) */
+#cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: 600px;
+    margin-left: -300px;
+    margin-top: -300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.08), transparent 65%);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    will-change: transform;
+}
+#cursor-glow.active { opacity: 1; }
+@media (max-width: 900px), (hover: none) {
+    #cursor-glow { display: none; }
+}
+
+/* Hero atmosphere: a faint drifting HUD grid, a quiet nod to the Helios
+   build's own instrument-panel look */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 40%, transparent 90%);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 40%, transparent 90%);
+    animation: gridDrift 22s linear infinite;
+    pointer-events: none;
+}
+@keyframes gridDrift {
+    from { background-position: 0 0, 0 0; }
+    to { background-position: 48px 48px, 48px 48px; }
+}
+
+/* Glowing gradient dividers between sections (injected by script.js) —
+   replaces the hard flat cuts with a soft pulsing seam */
+.section-divider {
+    height: 1px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3) 25%, rgba(255, 0, 110, 0.3) 75%, transparent);
+}
+.section-divider::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    width: 120px;
+    height: 3px;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    filter: blur(4px);
+    animation: dividerPulse 4s ease-in-out infinite;
+}
+@keyframes dividerPulse {
+    0%, 100% { opacity: 0.35; width: 100px; }
+    50% { opacity: 1; width: 220px; }
+}
+
+/* Project cards get a richer two-tone glow on hover and a 3D-tilt-ready
+   transform context (the actual rotation is applied inline by script.js) */
+.project-card {
+    position: relative;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+.project-card:hover {
+    box-shadow:
+        0 20px 40px rgba(0, 212, 255, 0.15),
+        0 0 0 1px rgba(0, 212, 255, 0.45),
+        0 0 40px rgba(255, 0, 110, 0.12);
+}
+
+/* Flagship project treatment — script.js auto-detects the card whose
+   heading contains "Helios" and applies this class + badge, so no manual
+   HTML changes are required to get the amber "signature" glow */
+.project-card--featured {
+    border-color: rgba(255, 140, 58, 0.35);
+    background: linear-gradient(180deg, rgba(255, 140, 58, 0.05), var(--card-bg) 45%);
+}
+.project-card--featured .project-content h3 {
+    color: var(--accent-warm);
+}
+.project-card--featured:hover {
+    box-shadow:
+        0 20px 40px rgba(255, 140, 58, 0.18),
+        0 0 0 1px rgba(255, 140, 58, 0.5),
+        0 0 40px rgba(255, 140, 58, 0.18);
+}
+.project-card--featured .project-image {
+    background: radial-gradient(ellipse at center, rgba(255, 140, 58, 0.16), rgba(255, 0, 110, 0.05) 60%, transparent 80%);
+}
+.featured-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 1.5px;
+    color: var(--accent-warm);
+    background: rgba(255, 140, 58, 0.12);
+    border: 1px solid rgba(255, 140, 58, 0.45);
+    padding: 4px 10px;
+    border-radius: 20px;
+    z-index: 2;
+}
+
+/* Buttons and project links get a subtle magnetic pull toward the cursor
+   (applied inline by script.js); this just primes them for a smooth reset */
+.btn, .project-link, button.project-link {
+    will-change: transform;
+}
+
+/* Refined video modal: soft scale-in + blurred backdrop instead of an
+   instant hard cut */
+.video-modal {
+    backdrop-filter: blur(6px);
+}
+.video-modal-content {
+    transform: scale(0.94);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.video-modal.open .video-modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+.video-modal-content #demo-video {
+    box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.25), 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .hero::after,
+    .section-divider::before {
+        animation: none !important;
+    }
+    .project-card,
+    .btn,
+    .project-link {
+        transition: none !important;
+    }
 }

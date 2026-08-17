@@ -69,6 +69,16 @@ const translations = {
     "projects.admin-dashboard.demo-note": "Demo access available • Editing & delete disabled",
     "skills.github-pages": "GitHub Pages",
 
+    "projects.it-ticket-system.title": "IT Ticket System",
+    "projects.it-ticket-system.description": "A responsive IT ticketing system built with HTML, CSS, and JavaScript. Using Supabase for backend data management, it allows users to submit support tickets, track their status, and view ticket history. The system is designed for IT support teams to efficiently manage and resolve technical issues.",
+    "projects.it-ticket-system.demo": "View Demo →",
+
+    "projects.helios.title": "Helios – 3D AI Orb Interface",
+    "projects.helios.description": "An immersive, voice-driven front end for a personal AI assistant, built with Three.js and WebGL shaders. A living plasma orb reacts in real time to speech amplitude, conversation state, and tool activity — complete with orbiting data-node cards, energy tethers, streaming text-to-speech, and camera-based hand-gesture controls for touch-free interaction.",
+    "projects.helios.tech.audio": "Real-time Audio Analysis",
+    "projects.helios.tech.gesture": "Hand-Gesture Tracking",
+    "projects.helios.demo": "View Demo →",
+
     "contact.title": "Get In Touch",
     "contact.subtitle": "Let's discuss your IT needs and how I can help",
 
@@ -77,10 +87,6 @@ const translations = {
     "contact.form.message": "Your Message",
     "contact.form.send": "Send Message",
     "contact.connect": "Connect With Me",
-
-    "projects.it-ticket-system.title": "IT Ticket System",
-    "projects.it-ticket-system.description": "A responsive IT ticketing system built with HTML, CSS, and JavaScript. Using Supabase for backend data management, it allows users to submit support tickets, track their status, and view ticket history. The system is designed for IT support teams to efficiently manage and resolve technical issues.",
-    "projects.it-ticket-system.demo": "View Demo →",
 
     "footer.rights": "© 2026 Nabil Jouahry. All rights reserved. | Tech Specialist & Developer",
   },
@@ -146,6 +152,16 @@ const translations = {
     "projects.admin-dashboard.demo-note": "Accès démo disponible • Édition & suppression désactivées",
     "skills.github-pages": "Pages GitHub",
 
+    "projects.it-ticket-system.title": "Système de tickets IT",
+    "projects.it-ticket-system.description": "Un système de ticketing IT réactif construit avec HTML, CSS et JavaScript. Utilisant Supabase pour la gestion des données backend, il permet aux utilisateurs de soumettre des tickets de support, de suivre leur statut et de consulter l'historique des tickets. Le système est conçu pour que les équipes de support IT gèrent efficacement et résolvent les problèmes techniques.",
+    "projects.it-ticket-system.demo": "Démo en direct →",
+
+    "projects.helios.title": "Helios – Interface Orbe IA 3D",
+    "projects.helios.description": "Une interface immersive et pilotée par la voix pour un assistant IA personnel, construite avec Three.js et des shaders WebGL. Un orbe de plasma vivant réagit en temps réel à l'amplitude de la voix, à l'état de la conversation et à l'activité des outils — avec des cartes de données orbitales, des liaisons d'énergie, une synthèse vocale en streaming et un contrôle par gestes de la main pour une interaction sans contact.",
+    "projects.helios.tech.audio": "Analyse audio en temps réel",
+    "projects.helios.tech.gesture": "Suivi des gestes de la main",
+    "projects.helios.demo": "Voir la démo →",
+
     "contact.title": "Contact",
     "contact.subtitle": "Discutons de vos besoins IT et de la manière dont je peux aider",
 
@@ -156,10 +172,6 @@ const translations = {
     "contact.connect": "Connectez-vous avec moi",
 
     "footer.rights": "© 2026 Nabil Jouahry. Tous droits réservés. | Spécialiste IT & Développeur",
-
-    "projects.it-ticket-system.title": "Système de tickets IT",
-    "projects.it-ticket-system.description": "Un système de ticketing IT réactif construit avec HTML, CSS et JavaScript. Utilisant Supabase pour la gestion des données backend, il permet aux utilisateurs de soumettre des tickets de support, de suivre leur statut et de consulter l'historique des tickets. Le système est conçu pour que les équipes de support IT gèrent efficacement et résolvent les problèmes techniques.",
-    "projects.it-ticket-system.demo": "Démo en direct →",
   }
 };
 
@@ -418,9 +430,129 @@ function createParticles() {
 
 /* =========================
    ESC closes mobile menu
+   (was called in the original DOMContentLoaded but never defined —
+   that threw a ReferenceError and silently skipped createParticles()
+   right after it. Now implemented for real.)
    ========================= */
 
+function initEscCloseMenu() {
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (navLinks?.classList.contains('active')) {
+      navLinks.classList.remove('active');
+      menuToggle?.classList.remove('active');
+    }
+  });
+}
 
+/* =========================================================
+   PREMIUM UPGRADE PACK
+   Cursor-follow ambient glow · 3D card tilt · magnetic CTAs ·
+   glowing gradient section dividers · flagship project
+   auto-detection (Helios gets the amber treatment with zero
+   HTML edits needed)
+   ========================================================= */
+
+/* Ambient glow that follows the pointer across dark sections */
+function initCursorGlow() {
+  if (window.matchMedia('(hover: none)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const glow = document.createElement('div');
+  glow.id = 'cursor-glow';
+  document.body.appendChild(glow);
+
+  let raf = null;
+  document.addEventListener('mousemove', (e) => {
+    glow.classList.add('active');
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      raf = null;
+    });
+  });
+  document.addEventListener('mouseleave', () => glow.classList.remove('active'));
+}
+
+/* Subtle 3D tilt on project cards, following the cursor within the card */
+function initCardTilt() {
+  if (window.matchMedia('(hover: none)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.querySelectorAll('.project-card').forEach(card => {
+    let raf = null;
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        card.style.transition = 'transform 0.05s linear';
+        card.style.transform = `perspective(900px) rotateX(${-y * 6}deg) rotateY(${x * 8}deg) translateY(-6px)`;
+        raf = null;
+      });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transition = 'transform 0.5s ease';
+      card.style.transform = '';
+    });
+  });
+}
+
+/* Buttons and project links drift slightly toward the cursor when nearby */
+function initMagneticButtons() {
+  if (window.matchMedia('(hover: none)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.querySelectorAll('.btn, .project-link').forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - (rect.left + rect.width / 2);
+      const y = e.clientY - (rect.top + rect.height / 2);
+      el.style.transition = 'transform 0.1s ease-out';
+      el.style.transform = `translate(${x * 0.18}px, ${y * 0.3}px)`;
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transition = 'transform 0.4s ease';
+      el.style.transform = 'translate(0, 0)';
+    });
+  });
+}
+
+/* Glowing gradient dividers between major sections, injected automatically —
+   no HTML edits needed */
+function injectSectionDividers() {
+  const ids = ['home', 'about', 'skills', 'projects', 'contact'];
+  ids.forEach(id => {
+    const section = document.getElementById(id);
+    if (!section) return;
+    if (section.nextElementSibling && section.nextElementSibling.classList.contains('section-divider')) return;
+    const divider = document.createElement('div');
+    divider.className = 'section-divider';
+    section.insertAdjacentElement('afterend', divider);
+  });
+}
+
+/* Auto-detects the Helios project card by its heading text and gives it the
+   flagship amber glow + badge — works without touching index.html */
+function initFeaturedProject() {
+  document.querySelectorAll('.project-card').forEach(card => {
+    const heading = card.querySelector('.project-content h3');
+    if (heading && /helios/i.test(heading.textContent)) {
+      card.classList.add('project-card--featured');
+      if (!card.querySelector('.featured-badge')) {
+        const badge = document.createElement('span');
+        badge.className = 'featured-badge';
+        badge.textContent = 'FLAGSHIP BUILD';
+        card.appendChild(badge);
+      }
+    }
+  });
+}
 
 /* =========================
    Init
@@ -438,6 +570,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNav();
   initEscCloseMenu();
   createParticles();
+
+  // Premium upgrade pack
+  initCursorGlow();
+  initCardTilt();
+  initMagneticButtons();
+  injectSectionDividers();
+  initFeaturedProject();
 });
 
 window.addEventListener('resize', () => {
